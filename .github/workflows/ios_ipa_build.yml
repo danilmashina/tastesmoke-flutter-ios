@@ -49,20 +49,42 @@ jobs:
         pod --version
         pod install --repo-update --verbose
         
-    - name: Build iOS IPA
+    - name: Build iOS App (без подписи для AltStore)
       run: |
-        flutter build ipa --release --export-options-plist=ios/Runner/ExportOptions.plist
+        echo "--- Сборка приложения для AltStore ---"
+        # Сначала пробуем собрать для симулятора
+        flutter build ios --release --no-codesign
+        
+        echo "--- Создание .app файла ---"
+        # Копируем .app файл
+        mkdir -p build/ios/ipa
+        cp -r build/ios/iphoneos/Runner.app build/ios/ipa/
+        
+        echo "--- Информация о собранном приложении ---"
+        ls -la build/ios/ipa/
+        
+        # Создаем .ipa вручную (zip архив)
+        cd build/ios/ipa
+        mkdir -p Payload
+        cp -r Runner.app Payload/
+        zip -r TasteSmoke.ipa Payload/
+        ls -la *.ipa
           
     - name: Upload IPA artifact
       uses: actions/upload-artifact@v4
       with:
         name: TasteSmoke-iOS-${{ github.run_number }}
-        path: build/ios/ipa/*.ipa
+        path: |
+          build/ios/ipa/*.ipa
+          build/ios/ipa/*.app
         retention-days: 30
         
     - name: Upload dSYM symbols (отладка)
       uses: actions/upload-artifact@v4
       with:
         name: TasteSmoke-dSYM-${{ github.run_number }}
-        path: build/ios/archive/Runner.xcarchive/dSYMs/
+        path: |
+          build/ios/iphoneos/Runner.app.dSYM
+          build/ios/Release-iphoneos/Runner.app.dSYM
         retention-days: 7
+        if-no-files-found: ignore
