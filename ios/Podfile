@@ -47,10 +47,25 @@ post_install do |installer|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       config.build_settings['ENABLE_BITCODE'] = 'NO'
       
+      # Исправление Swift compiler flags
+      config.build_settings['SWIFT_COMPILATION_MODE'] = 'wholemodule'
+      config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-O'
+      
+      # Отключение проблемных флагов компилятора
+      config.build_settings['GCC_GENERATE_DEBUGGING_SYMBOLS'] = 'NO'
+      config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+      
+      # Дополнительные настройки для ARM64
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+      config.build_settings['VALID_ARCHS[sdk=iphoneos*]'] = 'arm64'
+      
       # Исправление предупреждений
       if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
         config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
       end
+      
+      # Очистка других проблемных флагов
+      config.build_settings.delete('OTHER_SWIFT_FLAGS')
     end
   end
 end

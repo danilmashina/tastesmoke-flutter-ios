@@ -52,8 +52,14 @@ jobs:
     - name: Build iOS App (без подписи для AltStore)
       run: |
         echo "--- Сборка приложения для AltStore ---"
-        # Сначала пробуем собрать для симулятора
-        flutter build ios --release --no-codesign
+        # Очистка перед сборкой
+        cd ios && pod deintegrate && cd ..
+        flutter clean
+        flutter pub get
+        cd ios && pod install && cd ..
+        
+        # Сборка без подписи с дополнительными флагами
+        flutter build ios --release --no-codesign --no-tree-shake-icons
         
         echo "--- Создание .app файла ---"
         # Копируем .app файл
