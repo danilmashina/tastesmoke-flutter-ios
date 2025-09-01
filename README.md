@@ -218,4 +218,11 @@ flutter build ios
 
 ---
 
+# tastesmoke-flutter-ios
+TasteSmoke Flutter iOS app with AltStore deployment
+>>>>>>> b402ed89c1f2b388ac624c5314af08e01fc29e87
 **Создано с ❤️ для сообщества TasteSmoke**
+=======
+# tastesmoke-flutter-ios
+TasteSmoke Flutter iOS app with AltStore deployment
+>>>>>>> b402ed89c1f2b388ac624c5314af08e01fc29e87
