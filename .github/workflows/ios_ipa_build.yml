@@ -61,47 +61,100 @@ jobs:
         
         echo "--- Повторная инициализация ---"
         flutter pub get
+        flutter precache --ios
         cd ios && pod install --repo-update && cd ..
         
-        echo "--- Сборка без -G флага (многоуровневая стратегия) ---"
+        echo "--- Сборка с обходом -G флага (только debug) ---"
         
-        # Попытка 1: Device release build
-        if flutter build ios --release --no-codesign --no-tree-shake-icons; then
-          echo "--- Успешная device release сборка ---"
-          APP_PATH="build/ios/iphoneos/Runner.app"
-        # Попытка 2: Debug device build (меньше оптимизаций)
-        elif flutter build ios --debug --no-codesign; then
+        # Попытка 1: Debug device build (избегаем release оптимизации)
+        if flutter build ios --debug --no-codesign; then
           echo "--- Успешная device debug сборка ---"
           APP_PATH="build/ios/Debug-iphoneos/Runner.app"
-        # Попытка 3: Полная очистка и debug simulator
+        # Попытка 2: Debug simulator build
+        elif flutter build ios --debug --no-codesign --simulator; then
+          echo "--- Успешная debug simulator сборка ---"
+          APP_PATH="build/ios/Debug-iphonesimulator/Runner.app"
+        # Попытка 3: Полная пересборка с minimal настройками
         else
-          echo "--- Device сборки не удались, полная очистка ---"
+          echo "--- Обычные сборки не удались, полная пересборка ---"
           flutter clean
-          cd ios && pod deintegrate && pod install && cd ..
-          flutter pub get
+          rm -rf ios/Pods ios/Podfile.lock
           
-          if flutter build ios --debug --no-codesign --simulator; then
-            echo "--- Успешная debug simulator сборка ---"
-            APP_PATH="build/ios/Debug-iphonesimulator/Runner.app"
+          echo "--- Минимальная сборка без оптимизаций ---"
+          # Убираем все оптимизации из Podfile временно
+          cp ios/Podfile ios/Podfile.backup
+          cat > ios/Podfile.minimal << 'EOF'
+platform :ios, '13.0'
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+  end
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT=(.*)/) 
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  use_frameworks!
+  use_modular_headers!
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      # Минимальные настройки для избежания -G флага
+      config.build_settings['GCC_GENERATE_DEBUGGING_SYMBOLS'] = 'NO'
+      config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf-with-dsym'
+    end
+  end
+end
+EOF
+          
+          mv ios/Podfile.minimal ios/Podfile
+          flutter pub get
+          flutter precache --ios
+          cd ios && pod install --repo-update && cd ..
+          
+          if flutter build ios --debug --no-codesign; then
+            echo "--- Успешная minimal debug сборка ---"
+            APP_PATH="build/ios/Debug-iphoneos/Runner.app"
           else
-            echo "--- Критическая ошибка: все стратегии сборки не удались ---"
-            echo "Firebase модули:"
-            find . -name "*firebase*" -o -name "*Firebase*" | head -10
-            echo "Pod состояние:"
-            cd ios && pod --version && pod list | grep -i firebase || true
+            echo "--- Критическая ошибка: все стратегии не удались ---"
+            echo "Логи Xcode build:"
+            flutter build ios --debug --no-codesign --verbose || true
+            echo "Состояние проекта:"
+            ls -la ios/ || true
             exit 1
           fi
         fi
         
         echo "--- Проверка собранного приложения ---"
         if [ ! -d "$APP_PATH" ]; then
-          echo "--- Приложение не найдено по пути: $APP_PATH ---"
+          echo "--- Приложение не найдено: $APP_PATH ---"
           find build -name "*.app" -type d 2>/dev/null || true
           exit 1
         fi
         
         echo "--- Найдено приложение: $APP_PATH ---"
-        ls -la "$APP_PATH" | head -5
+        ls -la "$APP_PATH" | head -3
         
         echo "--- Создание .ipa ---"
         mkdir -p build/ios/ipa

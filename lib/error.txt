@@ -1,0 +1,313 @@
+Run echo "--- Полная очистка среды ---"
+--- Полная очистка среды ---
+Deintegrating `Runner.xcodeproj`
+Deleted 1 'Check Pods Manifest.lock' build phases.
+Deleted 1 'Embed Pods Frameworks' build phases.
+- Pods_Runner.framework
+Deleted 1 'Check Pods Manifest.lock' build phases.
+- Pods_RunnerTests.framework
+- Pods-RunnerTests.debug.xcconfig
+- Pods-RunnerTests.release.xcconfig
+- Pods-RunnerTests.profile.xcconfig
+Deleting Pod file references from project
+- Pods-Runner.debug.xcconfig
+- Pods-Runner.release.xcconfig
+- Pods-Runner.profile.xcconfig
+Deleted 1 empty `Pods` groups from project.
+Deleted 1 empty `Frameworks` groups from project.
+Removing `Pods` directory.
+Project has been deintegrated. No traces of CocoaPods left in project.
+Note: The workspace referencing the Pods project still remains.
+Cleaning Xcode workspace...                                         5.7s
+Deleting .dart_tool...                                               2ms
+Deleting ephemeral...                                                0ms
+Deleting Generated.xcconfig...                                       0ms
+Deleting flutter_export_environment.sh...                            0ms
+Deleting Flutter.podspec...                                          0ms
+Deleting .flutter-plugins-dependencies...                            0ms
+--- Повторная инициализация ---
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.35 (1.3.61 available)
+  characters 1.4.0 (1.4.1 available)
+  cloud_firestore 4.17.5 (6.0.1 available)
+  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
+  cloud_firestore_web 3.12.5 (5.0.1 available)
+  firebase_analytics 10.10.7 (12.0.1 available)
+  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
+  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
+  firebase_auth 4.16.0 (6.0.2 available)
+  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
+  firebase_auth_web 5.8.13 (6.0.2 available)
+  firebase_core 2.32.0 (4.1.0 available)
+  firebase_core_platform_interface 5.4.2 (6.0.0 available)
+  firebase_core_web 2.24.0 (3.1.0 available)
+  firebase_remote_config 4.4.7 (6.0.1 available)
+  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
+  firebase_remote_config_web 1.6.7 (1.8.11 available)
+  firebase_storage 11.6.5 (13.0.1 available)
+  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
+  firebase_storage_web 3.6.22 (3.10.19 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  go_router 12.1.3 (16.2.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 5.1.1 (6.0.0 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.17.0 available)
+  test_api 0.7.6 (0.7.7 available)
+Got dependencies!
+27 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Updating local specs repositories
+Analyzing dependencies
+cloud_firestore: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+firebase_analytics: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+firebase_auth: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+firebase_core: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+firebase_remote_config: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+firebase_storage: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+Downloading dependencies
+[!] CocoaPods did not set the base configuration of your project because your project already has a custom config set. In order for CocoaPods integration to work at all, please either set the base configurations of the target `Runner` to `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` or include the `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` in your build configuration (`Flutter/Release.xcconfig`).
+Installing BoringSSL-GRPC (0.0.32)
+Installing Firebase (10.25.0)
+Installing FirebaseABTesting (10.29.0)
+Installing FirebaseAnalytics (10.25.0)
+Installing FirebaseAppCheckInterop (10.29.0)
+Installing FirebaseAuth (10.25.0)
+Installing FirebaseAuthInterop (10.29.0)
+Installing FirebaseCore (10.25.0)
+Installing FirebaseCoreExtension (10.29.0)
+Installing FirebaseCoreInternal (10.29.0)
+Installing FirebaseFirestore (10.25.0)
+Installing FirebaseFirestoreInternal (10.25.0)
+Installing FirebaseInstallations (10.29.0)
+Installing FirebaseRemoteConfig (10.25.0)
+Installing FirebaseRemoteConfigInterop (10.29.0)
+Installing FirebaseSharedSwift (10.29.0)
+Installing FirebaseStorage (10.25.0)
+Installing Flutter (1.0.0)
+Installing GTMSessionFetcher (3.5.0)
+Installing GoogleAppMeasurement (10.25.0)
+Installing GoogleUtilities (7.13.3)
+Installing PromisesObjC (2.4.0)
+Installing RecaptchaInterop (100.0.0)
+Installing abseil (1.20240116.2)
+Installing cloud_firestore (4.17.5)
+Installing firebase_analytics (10.10.7)
+Installing firebase_auth (4.16.0)
+Installing firebase_core (2.32.0)
+Installing firebase_remote_config (4.4.7)
+Installing firebase_storage (11.6.5)
+Installing gRPC-C++ (1.62.5)
+Installing gRPC-Core (1.62.5)
+Installing leveldb-library (1.22.6)
+Installing nanopb (2.30910.0)
+Installing path_provider_foundation (0.0.1)
+Installing sqflite_darwin (0.0.4)
+Generating Pods project
+Integrating client project
+Pod installation complete! There are 15 dependencies from the Podfile and 36 total pods installed.
+--- Сборка без -G флага (многоуровневая стратегия) ---
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.35 (1.3.61 available)
+  characters 1.4.0 (1.4.1 available)
+  cloud_firestore 4.17.5 (6.0.1 available)
+  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
+  cloud_firestore_web 3.12.5 (5.0.1 available)
+  firebase_analytics 10.10.7 (12.0.1 available)
+  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
+  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
+  firebase_auth 4.16.0 (6.0.2 available)
+  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
+  firebase_auth_web 5.8.13 (6.0.2 available)
+  firebase_core 2.32.0 (4.1.0 available)
+  firebase_core_platform_interface 5.4.2 (6.0.0 available)
+  firebase_core_web 2.24.0 (3.1.0 available)
+  firebase_remote_config 4.4.7 (6.0.1 available)
+  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
+  firebase_remote_config_web 1.6.7 (1.8.11 available)
+  firebase_storage 11.6.5 (13.0.1 available)
+  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
+  firebase_storage_web 3.6.22 (3.10.19 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  go_router 12.1.3 (16.2.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 5.1.1 (6.0.0 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.17.0 available)
+  test_api 0.7.6 (0.7.7 available)
+Got dependencies!
+27 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Warning: Building for device with codesigning disabled. You will have to manually codesign before deploying to device.
+Building com.tastesmoke.app for device (ios-release)...
+.gitignore does not ignore Swift Package Manager build directories, updating.
+Running pod install...                                             19.3s
+Running Xcode build...                                          
+Xcode build done.                                           71.8s
+Failed to build iOS app
+Error (Xcode): unsupported option '-G' for target 'arm64-apple-ios13.0'
+Encountered error while building for device.
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.35 (1.3.61 available)
+  characters 1.4.0 (1.4.1 available)
+  cloud_firestore 4.17.5 (6.0.1 available)
+  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
+  cloud_firestore_web 3.12.5 (5.0.1 available)
+  firebase_analytics 10.10.7 (12.0.1 available)
+  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
+  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
+  firebase_auth 4.16.0 (6.0.2 available)
+  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
+  firebase_auth_web 5.8.13 (6.0.2 available)
+  firebase_core 2.32.0 (4.1.0 available)
+  firebase_core_platform_interface 5.4.2 (6.0.0 available)
+  firebase_core_web 2.24.0 (3.1.0 available)
+  firebase_remote_config 4.4.7 (6.0.1 available)
+  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
+  firebase_remote_config_web 1.6.7 (1.8.11 available)
+  firebase_storage 11.6.5 (13.0.1 available)
+  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
+  firebase_storage_web 3.6.22 (3.10.19 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  go_router 12.1.3 (16.2.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 5.1.1 (6.0.0 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.17.0 available)
+  test_api 0.7.6 (0.7.7 available)
+Got dependencies!
+27 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Warning: Building for device with codesigning disabled. You will have to manually codesign before deploying to device.
+Building com.tastesmoke.app for device (ios)...
+Running Xcode build...                                          
+Xcode build done.                                           102.0s
+Failed to build iOS app
+Error (Xcode): unsupported option '-G' for target 'arm64-apple-ios13.0'
+--- Device сборки не удались, полная очистка ---
+Encountered error while building for device.
+Cleaning Xcode workspace...                                        11.9s
+Deleting build...                                                  317ms
+Deleting .dart_tool...                                               1ms
+Deleting ephemeral...                                                0ms
+Deleting Generated.xcconfig...                                       0ms
+Deleting flutter_export_environment.sh...                            0ms
+Deleting Flutter.podspec...                                          0ms
+Deleting .flutter-plugins-dependencies...                            0ms
+Deintegrating `Runner.xcodeproj`
+Deleted 1 'Check Pods Manifest.lock' build phases.
+Deleted 1 'Embed Pods Frameworks' build phases.
+- Pods_Runner.framework
+Deleted 1 'Check Pods Manifest.lock' build phases.
+- Pods_RunnerTests.framework
+- Pods-RunnerTests.debug.xcconfig
+- Pods-RunnerTests.release.xcconfig
+- Pods-RunnerTests.profile.xcconfig
+Deleting Pod file references from project
+- Pods-Runner.debug.xcconfig
+- Pods-Runner.release.xcconfig
+- Pods-Runner.profile.xcconfig
+Deleted 1 empty `Pods` groups from project.
+Deleted 1 empty `Frameworks` groups from project.
+Removing `Pods` directory.
+Project has been deintegrated. No traces of CocoaPods left in project.
+Note: The workspace referencing the Pods project still remains.
+[!] Invalid `Podfile` file: /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Flutter/Generated.xcconfig must exist. If you're running pod install manually, make sure flutter pub get is executed first.
+ #  from /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Podfile:16
+ #  -------------------------------------------
+ #    unless File.exist?(generated_xcode_build_settings_path)
+ >      raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+ #    end
+ #  -------------------------------------------
+Resolving dependencies in `/Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios`...
+Downloading packages...
+  _flutterfire_internals 1.3.35 (1.3.61 available)
+  characters 1.4.0 (1.4.1 available)
+  cloud_firestore 4.17.5 (6.0.1 available)
+  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
+  cloud_firestore_web 3.12.5 (5.0.1 available)
+  firebase_analytics 10.10.7 (12.0.1 available)
+  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
+  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
+  firebase_auth 4.16.0 (6.0.2 available)
+  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
+  firebase_auth_web 5.8.13 (6.0.2 available)
+  firebase_core 2.32.0 (4.1.0 available)
+  firebase_core_platform_interface 5.4.2 (6.0.0 available)
+  firebase_core_web 2.24.0 (3.1.0 available)
+  firebase_remote_config 4.4.7 (6.0.1 available)
+  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
+  firebase_remote_config_web 1.6.7 (1.8.11 available)
+  firebase_storage 11.6.5 (13.0.1 available)
+  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
+  firebase_storage_web 3.6.22 (3.10.19 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  go_router 12.1.3 (16.2.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 5.1.1 (6.0.0 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.17.0 available)
+  test_api 0.7.6 (0.7.7 available)
+Got dependencies in `/Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios`!
+27 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Changing current working directory to: /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.35 (1.3.61 available)
+  characters 1.4.0 (1.4.1 available)
+  cloud_firestore 4.17.5 (6.0.1 available)
+  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
+  cloud_firestore_web 3.12.5 (5.0.1 available)
+  firebase_analytics 10.10.7 (12.0.1 available)
+  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
+  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
+  firebase_auth 4.16.0 (6.0.2 available)
+  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
+  firebase_auth_web 5.8.13 (6.0.2 available)
+  firebase_core 2.32.0 (4.1.0 available)
+  firebase_core_platform_interface 5.4.2 (6.0.0 available)
+  firebase_core_web 2.24.0 (3.1.0 available)
+  firebase_remote_config 4.4.7 (6.0.1 available)
+  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
+  firebase_remote_config_web 1.6.7 (1.8.11 available)
+  firebase_storage 11.6.5 (13.0.1 available)
+  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
+  firebase_storage_web 3.6.22 (3.10.19 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  go_router 12.1.3 (16.2.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 5.1.1 (6.0.0 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.17.0 available)
+  test_api 0.7.6 (0.7.7 available)
+Got dependencies!
+27 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Building com.tastesmoke.app for simulator (ios)...
+Running pod install...                                             29.4s
+Running Xcode build...                                          
+Xcode build done.                                           45.8s
+Failed to build iOS app
+Parse Issue (Xcode): Module 'cloud_firestore' not found
+/Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Runner/GeneratedPluginRegistrant.m:11:8
+Encountered error while building for simulator.
+--- Критическая ошибка: все стратегии сборки не удались ---
+Firebase модули:
+./Pods/FirebaseRemoteConfigInterop
+./Pods/FirebaseRemoteConfigInterop/FirebaseRemoteConfig
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseCoreInternal.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/firebase_analytics.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/Firebase.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseCore.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseAuth.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/firebase_core.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/firebase_auth.xcscheme
+./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseStorage.xcscheme
+find: stdout: Broken pipe
+/Users/runner/work/_temp/9bad42d9-98e1-43a2-8d85-0769e59dc890.sh: line 38: cd: ios: No such file or directory
+Pod состояние:
+Error: Process completed with exit code 1.
