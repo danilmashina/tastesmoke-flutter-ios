@@ -25,16 +25,29 @@ jobs:
         flutter --version
         flutter doctor -v
         
-    - name: Get Flutter dependencies
+    - name: Get Flutter dependencies (first time)
       run: flutter pub get
       
-    - name: Clean previous builds
-      run: flutter clean
-      
+    - name: Check iOS directory structure
+      run: |
+        ls -la ios/
+        echo "--- Checking for Generated.xcconfig ---"
+        ls -la ios/Flutter/ || echo "Flutter directory doesn't exist yet"
+        
+    - name: Clean and regenerate Flutter files
+      run: |
+        flutter clean
+        flutter pub get
+        flutter precache --ios
+        
     - name: Setup CocoaPods
       run: |
+        echo "--- Verifying Generated.xcconfig exists ---"
+        ls -la ios/Flutter/Generated.xcconfig
+        echo "--- Starting CocoaPods installation ---"
         cd ios
-        pod install --repo-update
+        pod --version
+        pod install --repo-update --verbose
         
     - name: Build iOS IPA
       run: |
