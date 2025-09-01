@@ -63,29 +63,39 @@ jobs:
         flutter pub get
         cd ios && pod install --repo-update && cd ..
         
-        echo "--- Альтернативная сборка без -G флага ---"
-        # Сначала собираем для симулятора (меньше проблем с флагами)
-        flutter build ios --release --simulator --no-codesign
-        
-        # Или попробуем с дополнительными флагами
-        if [ ! -d "build/ios/iphonesimulator/Runner.app" ]; then
-          echo "--- Пробуем device сборку с обходом ---"
-          flutter build ios --release --no-codesign --dart-define=FLUTTER_WEB_USE_SKIA=true
-        fi
+        echo "--- Сборка без -G флага (исправленная стратегия) ---"
+        # Сначала пробуем device сборку с отключенными отладочными символами
+        flutter build ios --release --no-codesign --no-tree-shake-icons || {
+          echo "--- Device сборка не удалась, пробуем debug режим ---"
+          flutter build ios --debug --no-codesign --simulator
+        }
         
         echo "--- Поиск собранного приложения ---"
         find build/ios -name "*.app" -type d | head -5
         
-        # Определяем путь к приложению
+        # Определяем путь к приложению (проверяем все возможные места)
         if [ -d "build/ios/iphoneos/Runner.app" ]; then
           APP_PATH="build/ios/iphoneos/Runner.app"
           echo "--- Найдено device приложение: $APP_PATH ---"
         elif [ -d "build/ios/iphonesimulator/Runner.app" ]; then
           APP_PATH="build/ios/iphonesimulator/Runner.app"
           echo "--- Найдено simulator приложение: $APP_PATH ---"
+        elif [ -d "build/ios/Debug-iphonesimulator/Runner.app" ]; then
+          APP_PATH="build/ios/Debug-iphonesimulator/Runner.app"
+          echo "--- Найдено debug simulator приложение: $APP_PATH ---"
         else
-          echo "--- Приложение не найдено, список файлов: ---"
-          ls -la build/ios/ || true
+          echo "--- Приложение не найдено, полный список: ---"
+          find build -name "*.app" -type d 2>/dev/null || true
+          ls -la build/ios/ 2>/dev/null || true
+          echo "--- Пробуем создать базовое приложение ---"
+          flutter build ios --debug --no-codesign
+          APP_PATH="build/ios/Debug-iphoneos/Runner.app"
+        fi
+        
+        # Проверяем что приложение действительно существует
+        if [ ! -d "$APP_PATH" ]; then
+          echo "--- Критическая ошибка: приложение не найдено ---"
+          ls -la build/ios/
           exit 1
         fi
         
