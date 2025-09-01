@@ -1,0 +1,70 @@
+name: iOS IPA Build (Flutter)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 'stable'
+        channel: 'stable'
+        
+    - name: Flutter doctor
+      run: flutter doctor -v
+      
+    - name: Get Flutter dependencies
+      run: flutter pub get
+      
+    - name: Clean iOS build
+      run: flutter clean
+      
+    - name: Setup CocoaPods
+      run: |
+        cd ios
+        pod repo update
+        pod install --repo-update
+        
+    - name: Build iOS (без подписи)
+      run: |
+        flutter build ios --release --no-codesign
+        
+    - name: Create IPA архив
+      run: |
+        cd ios
+        xcodebuild -workspace Runner.xcworkspace \
+          -scheme Runner \
+          -configuration Release \
+          -destination generic/platform=iOS \
+          -archivePath build/Runner.xcarchive \
+          archive
+          
+        xcodebuild -exportArchive \
+          -archivePath build/Runner.xcarchive \
+          -exportPath build \
+          -exportOptionsPlist Runner/ExportOptions.plist
+          
+    - name: Upload IPA artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TasteSmoke-iOS-${{ github.run_number }}
+        path: ios/build/*.ipa
+        retention-days: 30
+        
+    - name: Upload dSYM symbols (отладка)
+      uses: actions/upload-artifact@v4
+      with:
+        name: TasteSmoke-dSYM-${{ github.run_number }}
+        path: ios/build/**/*.dSYM
+        retention-days: 7
