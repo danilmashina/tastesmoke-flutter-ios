@@ -33,6 +33,14 @@ target 'Runner' do
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   
+  # Обеспечиваем правильное связывание Firebase модулей
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/RemoteConfig'
+  
   target 'RunnerTests' do
     inherit! :search_paths
   end

@@ -63,41 +63,45 @@ jobs:
         flutter pub get
         cd ios && pod install --repo-update && cd ..
         
-        echo "--- Сборка без -G флага (исправленная стратегия) ---"
-        # Сначала пробуем device сборку с отключенными отладочными символами
-        flutter build ios --release --no-codesign --no-tree-shake-icons || {
-          echo "--- Device сборка не удалась, пробуем debug режим ---"
-          flutter build ios --debug --no-codesign --simulator
-        }
+        echo "--- Сборка без -G флага (многоуровневая стратегия) ---"
         
-        echo "--- Поиск собранного приложения ---"
-        find build/ios -name "*.app" -type d | head -5
-        
-        # Определяем путь к приложению (проверяем все возможные места)
-        if [ -d "build/ios/iphoneos/Runner.app" ]; then
+        # Попытка 1: Device release build
+        if flutter build ios --release --no-codesign --no-tree-shake-icons; then
+          echo "--- Успешная device release сборка ---"
           APP_PATH="build/ios/iphoneos/Runner.app"
-          echo "--- Найдено device приложение: $APP_PATH ---"
-        elif [ -d "build/ios/iphonesimulator/Runner.app" ]; then
-          APP_PATH="build/ios/iphonesimulator/Runner.app"
-          echo "--- Найдено simulator приложение: $APP_PATH ---"
-        elif [ -d "build/ios/Debug-iphonesimulator/Runner.app" ]; then
-          APP_PATH="build/ios/Debug-iphonesimulator/Runner.app"
-          echo "--- Найдено debug simulator приложение: $APP_PATH ---"
-        else
-          echo "--- Приложение не найдено, полный список: ---"
-          find build -name "*.app" -type d 2>/dev/null || true
-          ls -la build/ios/ 2>/dev/null || true
-          echo "--- Пробуем создать базовое приложение ---"
-          flutter build ios --debug --no-codesign
+        # Попытка 2: Debug device build (меньше оптимизаций)
+        elif flutter build ios --debug --no-codesign; then
+          echo "--- Успешная device debug сборка ---"
           APP_PATH="build/ios/Debug-iphoneos/Runner.app"
+        # Попытка 3: Полная очистка и debug simulator
+        else
+          echo "--- Device сборки не удались, полная очистка ---"
+          flutter clean
+          cd ios && pod deintegrate && pod install && cd ..
+          flutter pub get
+          
+          if flutter build ios --debug --no-codesign --simulator; then
+            echo "--- Успешная debug simulator сборка ---"
+            APP_PATH="build/ios/Debug-iphonesimulator/Runner.app"
+          else
+            echo "--- Критическая ошибка: все стратегии сборки не удались ---"
+            echo "Firebase модули:"
+            find . -name "*firebase*" -o -name "*Firebase*" | head -10
+            echo "Pod состояние:"
+            cd ios && pod --version && pod list | grep -i firebase || true
+            exit 1
+          fi
         fi
         
-        # Проверяем что приложение действительно существует
+        echo "--- Проверка собранного приложения ---"
         if [ ! -d "$APP_PATH" ]; then
-          echo "--- Критическая ошибка: приложение не найдено ---"
-          ls -la build/ios/
+          echo "--- Приложение не найдено по пути: $APP_PATH ---"
+          find build -name "*.app" -type d 2>/dev/null || true
           exit 1
         fi
+        
+        echo "--- Найдено приложение: $APP_PATH ---"
+        ls -la "$APP_PATH" | head -5
         
         echo "--- Создание .ipa ---"
         mkdir -p build/ios/ipa
