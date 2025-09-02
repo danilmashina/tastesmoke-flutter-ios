@@ -61,6 +61,16 @@ jobs:
         pod --version
         pod install --repo-update --verbose
         
+    - name: Fix xcconfig issues with xcconfig-patcher
+      run: |
+        echo "--- Installing and running xcconfig-patcher ---"
+        cd ios
+        # Install xcconfig-patcher
+        npm install xcconfig-patcher
+        # Run the patcher
+        npx xcconfig-patcher --set-base-config Runner.xcodeproj "Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig" || echo "xcconfig-patcher failed, continuing anyway..."
+        cd ..
+        
     - name: Build iOS App (без подписи для AltStore)
       run: |
         echo "--- Полная очистка среды ---"
