@@ -27,47 +27,39 @@ jobs:
         flutter doctor -v
         
     - name: Get Flutter dependencies (first time)
-      run: flutter pub get
-      
+      run: |
+        flutter pub get
+        flutter precache --ios
+        
     - name: Check iOS directory structure
       run: |
         ls -la ios/
         echo "--- Checking for Generated.xcconfig ---"
         ls -la ios/Flutter/ || echo "Flutter directory doesn't exist yet"
         
-    - name: Clean and regenerate Flutter files
+    - name: Ensure Generated.xcconfig exists
       run: |
-        flutter clean
-        flutter pub get
+        echo "--- Ensuring Generated.xcconfig exists ---"
+        cd ios
+        # Remove any existing Generated.xcconfig to ensure clean state
+        rm -f Flutter/Generated.xcconfig
+        cd ..
+        # Generate it properly
         flutter precache --ios
+        # Verify it exists
+        if [ ! -f "ios/Flutter/Generated.xcconfig" ]; then
+          echo "ERROR: Generated.xcconfig was not created!"
+          exit 1
+        fi
+        echo "Generated.xcconfig contents:"
+        cat ios/Flutter/Generated.xcconfig
         
     - name: Setup CocoaPods
       run: |
-        echo "--- Verifying Generated.xcconfig exists ---"
-        ls -la ios/Flutter/Generated.xcconfig
         echo "--- Starting CocoaPods installation ---"
         cd ios
         pod --version
-        # Remove any existing Generated.xcconfig with Windows paths
-        rm -f Flutter/Generated.xcconfig
-        # Regenerate it properly for macOS
-        cd ..
-        flutter precache --ios
-        cd ios
         pod install --repo-update --verbose
-        
-    - name: Fix Generated.xcconfig for macOS
-      run: |
-        echo "--- Fixing Generated.xcconfig for macOS ---"
-        cd ios
-        # Remove any existing Generated.xcconfig with Windows paths
-        rm -f Flutter/Generated.xcconfig
-        cd ..
-        # Regenerate it properly for macOS
-        flutter precache --ios
-        # Verify the fix
-        echo "Generated.xcconfig contents:"
-        cat ios/Flutter/Generated.xcconfig
         
     - name: Build iOS App (без подписи для AltStore)
       run: |
@@ -83,7 +75,7 @@ jobs:
         flutter pub get
         flutter precache --ios
         cd ios
-        # Remove any existing Generated.xcconfig with Windows paths
+        # Remove any existing Generated.xcconfig with potential issues
         rm -f Flutter/Generated.xcconfig
         cd ..
         flutter precache --ios
