@@ -31,26 +31,22 @@ jobs:
         flutter pub get
         flutter precache --ios
         
-    - name: Check iOS directory structure
+    - name: Ensure Generated.xcconfig exists (Enhanced)
       run: |
-        ls -la ios/
-        echo "--- Checking for Generated.xcconfig ---"
-        ls -la ios/Flutter/ || echo "Flutter directory doesn't exist yet"
-        
-    - name: Ensure Generated.xcconfig exists
-      run: |
-        echo "--- Ensuring Generated.xcconfig exists ---"
+        echo "--- Enhanced Generated.xcconfig generation ---"
         cd ios
         # Remove any existing Generated.xcconfig to ensure clean state
         rm -f Flutter/Generated.xcconfig
+        rm -f Flutter/flutter_export_environment.sh
         cd ..
-        # Make sure we have all dependencies
-        flutter pub get
-        # Generate it properly
-        flutter precache --ios
+        
+        # Run our custom generation script
+        chmod +x scripts/generate_xcconfig.sh
+        ./scripts/generate_xcconfig.sh
+        
         # Verify it exists
         if [ ! -f "ios/Flutter/Generated.xcconfig" ]; then
-          echo "ERROR: Generated.xcconfig was not created!"
+          echo "ERROR: Generated.xcconfig was not created by our script!"
           echo "Running flutter doctor for more details:"
           flutter doctor -v
           exit 1
@@ -78,12 +74,10 @@ jobs:
         echo "--- Повторная инициализация ---"
         flutter pub get
         flutter precache --ios
-        cd ios
-        # Remove any existing Generated.xcconfig with potential issues
-        rm -f Flutter/Generated.xcconfig
-        cd ..
-        flutter pub get
-        flutter precache --ios
+        # Run our custom generation script again
+        chmod +x scripts/generate_xcconfig.sh
+        ./scripts/generate_xcconfig.sh
+        
         cd ios && pod install --repo-update && cd ..
         
         echo "--- Простая debug сборка (без сложных fallback) ---"
