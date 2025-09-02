@@ -26,7 +26,7 @@ jobs:
         flutter --version
         flutter doctor -v
         
-    - name: Get Flutter dependencies (first time)
+    - name: Get Flutter dependencies and precache
       run: |
         flutter pub get
         flutter precache --ios
@@ -44,11 +44,15 @@ jobs:
         # Remove any existing Generated.xcconfig to ensure clean state
         rm -f Flutter/Generated.xcconfig
         cd ..
+        # Make sure we have all dependencies
+        flutter pub get
         # Generate it properly
         flutter precache --ios
         # Verify it exists
         if [ ! -f "ios/Flutter/Generated.xcconfig" ]; then
           echo "ERROR: Generated.xcconfig was not created!"
+          echo "Running flutter doctor for more details:"
+          flutter doctor -v
           exit 1
         fi
         echo "Generated.xcconfig contents:"
@@ -78,6 +82,7 @@ jobs:
         # Remove any existing Generated.xcconfig with potential issues
         rm -f Flutter/Generated.xcconfig
         cd ..
+        flutter pub get
         flutter precache --ios
         cd ios && pod install --repo-update && cd ..
         

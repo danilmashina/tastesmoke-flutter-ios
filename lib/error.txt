@@ -1,29 +1,4 @@
-Run echo "--- Verifying Generated.xcconfig exists ---"
---- Verifying Generated.xcconfig exists ---
--rw-r--r--  1 runner  staff  592 Sep  2 09:02 ios/Flutter/Generated.xcconfig
---- Starting CocoaPods installation ---
-1.16.2
-[!] Invalid `Podfile` file: /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Flutter/Generated.xcconfig must exist. If you're running pod install manually, make sure flutter pub get is executed first.
- #  from /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Podfile:16
- #  -------------------------------------------
- #    unless File.exist?(generated_xcode_build_settings_path)
- >      raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
- #    end
- #  -------------------------------------------
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:335:in `rescue in block in from_ruby'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:329:in `block in from_ruby'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:50:in `instance_eval'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:50:in `initialize'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:327:in `new'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:327:in `from_ruby'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-core-1.16.2/lib/cocoapods-core/podfile.rb:293:in `from_file'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-1.16.2/lib/cocoapods/config.rb:206:in `podfile'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-1.16.2/lib/cocoapods/command.rb:160:in `verify_podfile_exists!'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-1.16.2/lib/cocoapods/command/install.rb:46:in `run'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/claide-1.1.0/lib/claide/command.rb:334:in `run'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-1.16.2/lib/cocoapods/command.rb:52:in `run'
-/opt/homebrew/lib/ruby/gems/3.3.0/gems/cocoapods-1.16.2/bin/pod:55:in `<top (required)>'
-/opt/homebrew/Cellar/ruby@3.3/3.3.9/lib/ruby/3.3.0/rubygems.rb:319:in `load'
-/opt/homebrew/Cellar/ruby@3.3/3.3.9/lib/ruby/3.3.0/rubygems.rb:319:in `activate_and_load_bin_path'
-/opt/homebrew/lib/ruby/gems/3.3.0/bin/pod:25:in `<main>'
+Run echo "--- Ensuring Generated.xcconfig exists ---"
+--- Ensuring Generated.xcconfig exists ---
+ERROR: Generated.xcconfig was not created!
 Error: Process completed with exit code 1.
