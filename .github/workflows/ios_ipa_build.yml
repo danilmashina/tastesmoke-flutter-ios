@@ -19,6 +19,7 @@ jobs:
       uses: subosito/flutter-action@v2
       with:
         channel: 'stable'
+        architecture: x64
         
     - name: Verify Flutter installation
       run: |
@@ -47,7 +48,26 @@ jobs:
         echo "--- Starting CocoaPods installation ---"
         cd ios
         pod --version
+        # Remove any existing Generated.xcconfig with Windows paths
+        rm -f Flutter/Generated.xcconfig
+        # Regenerate it properly for macOS
+        cd ..
+        flutter precache --ios
+        cd ios
         pod install --repo-update --verbose
+        
+    - name: Fix Generated.xcconfig for macOS
+      run: |
+        echo "--- Fixing Generated.xcconfig for macOS ---"
+        cd ios
+        # Remove any existing Generated.xcconfig with Windows paths
+        rm -f Flutter/Generated.xcconfig
+        cd ..
+        # Regenerate it properly for macOS
+        flutter precache --ios
+        # Verify the fix
+        echo "Generated.xcconfig contents:"
+        cat ios/Flutter/Generated.xcconfig
         
     - name: Build iOS App (без подписи для AltStore)
       run: |
@@ -62,16 +82,23 @@ jobs:
         echo "--- Повторная инициализация ---"
         flutter pub get
         flutter precache --ios
+        cd ios
+        # Remove any existing Generated.xcconfig with Windows paths
+        rm -f Flutter/Generated.xcconfig
+        cd ..
+        flutter precache --ios
         cd ios && pod install --repo-update && cd ..
         
         echo "--- Простая debug сборка (без сложных fallback) ---"
+        # Ensure we're using the correct build settings
+        export FLUTTER_BUILD_MODE=debug
         
-        # Попытка 1: Debug device build
-        if flutter build ios --debug --no-codesign; then
+        # Попытка 1: Debug device build with explicit settings
+        if flutter build ios --debug --no-codesign --build-number=1 --build-name=1.0.0 --dart-define=FLUTTER_BUILD_MODE=debug --verbose; then
           echo "--- Успешная device debug сборка ---"
           APP_PATH="build/ios/Debug-iphoneos/Runner.app"
         # Попытка 2: Debug simulator build
-        elif flutter build ios --debug --no-codesign --simulator; then
+        elif flutter build ios --debug --no-codesign --simulator --build-number=1 --build-name=1.0.0 --dart-define=FLUTTER_BUILD_MODE=debug --verbose; then
           echo "--- Успешная debug simulator сборка ---"
           APP_PATH="build/ios/Debug-iphonesimulator/Runner.app"
         else
@@ -80,6 +107,8 @@ jobs:
           flutter doctor -v
           echo "Логи Podfile:"
           cat ios/Podfile
+          echo "Логи Generated.xcconfig:"
+          cat ios/Flutter/Generated.xcconfig || echo "Generated.xcconfig not found"
           echo "Логи pod install:"
           cd ios && pod install --verbose
           exit 1

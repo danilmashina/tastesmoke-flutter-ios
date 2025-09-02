@@ -16,10 +16,11 @@ Deleting Pod file references from project
 Deleted 1 empty `Pods` groups from project.
 Deleted 1 empty `Frameworks` groups from project.
 Removing `Pods` directory.
+
 Project has been deintegrated. No traces of CocoaPods left in project.
 Note: The workspace referencing the Pods project still remains.
-Cleaning Xcode workspace...                                         5.7s
-Deleting .dart_tool...                                               2ms
+Cleaning Xcode workspace...                                         3.5s
+Deleting .dart_tool...                                               0ms
 Deleting ephemeral...                                                0ms
 Deleting Generated.xcconfig...                                       0ms
 Deleting flutter_export_environment.sh...                            0ms
@@ -66,6 +67,7 @@ firebase_auth: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
 firebase_core: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
 firebase_remote_config: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
 firebase_storage: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+
 Downloading dependencies
 [!] CocoaPods did not set the base configuration of your project because your project already has a custom config set. In order for CocoaPods integration to work at all, please either set the base configurations of the target `Runner` to `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` or include the `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` in your build configuration (`Flutter/Release.xcconfig`).
 Installing BoringSSL-GRPC (0.0.32)
@@ -107,48 +109,7 @@ Installing sqflite_darwin (0.0.4)
 Generating Pods project
 Integrating client project
 Pod installation complete! There are 15 dependencies from the Podfile and 36 total pods installed.
---- Сборка без -G флага (многоуровневая стратегия) ---
-Resolving dependencies...
-Downloading packages...
-  _flutterfire_internals 1.3.35 (1.3.61 available)
-  characters 1.4.0 (1.4.1 available)
-  cloud_firestore 4.17.5 (6.0.1 available)
-  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
-  cloud_firestore_web 3.12.5 (5.0.1 available)
-  firebase_analytics 10.10.7 (12.0.1 available)
-  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
-  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
-  firebase_auth 4.16.0 (6.0.2 available)
-  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
-  firebase_auth_web 5.8.13 (6.0.2 available)
-  firebase_core 2.32.0 (4.1.0 available)
-  firebase_core_platform_interface 5.4.2 (6.0.0 available)
-  firebase_core_web 2.24.0 (3.1.0 available)
-  firebase_remote_config 4.4.7 (6.0.1 available)
-  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
-  firebase_remote_config_web 1.6.7 (1.8.11 available)
-  firebase_storage 11.6.5 (13.0.1 available)
-  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
-  firebase_storage_web 3.6.22 (3.10.19 available)
-  flutter_lints 5.0.0 (6.0.0 available)
-  go_router 12.1.3 (16.2.1 available)
-  js 0.6.7 (0.7.2 available)
-  lints 5.1.1 (6.0.0 available)
-  material_color_utilities 0.11.1 (0.13.0 available)
-  meta 1.16.0 (1.17.0 available)
-  test_api 0.7.6 (0.7.7 available)
-Got dependencies!
-27 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-Warning: Building for device with codesigning disabled. You will have to manually codesign before deploying to device.
-Building com.tastesmoke.app for device (ios-release)...
-.gitignore does not ignore Swift Package Manager build directories, updating.
-Running pod install...                                             19.3s
-Running Xcode build...                                          
-Xcode build done.                                           71.8s
-Failed to build iOS app
-Error (Xcode): unsupported option '-G' for target 'arm64-apple-ios13.0'
-Encountered error while building for device.
+--- Простая debug сборка (без сложных fallback) ---
 Resolving dependencies...
 Downloading packages...
   _flutterfire_internals 1.3.35 (1.3.61 available)
@@ -183,78 +144,14 @@ Got dependencies!
 Try `flutter pub outdated` for more information.
 Warning: Building for device with codesigning disabled. You will have to manually codesign before deploying to device.
 Building com.tastesmoke.app for device (ios)...
+.gitignore does not ignore Swift Package Manager build directories, updating.
+Running pod install...                                             14.7s
 Running Xcode build...                                          
-Xcode build done.                                           102.0s
+Xcode build done.                                           41.4s
 Failed to build iOS app
 Error (Xcode): unsupported option '-G' for target 'arm64-apple-ios13.0'
---- Device сборки не удались, полная очистка ---
+
 Encountered error while building for device.
-Cleaning Xcode workspace...                                        11.9s
-Deleting build...                                                  317ms
-Deleting .dart_tool...                                               1ms
-Deleting ephemeral...                                                0ms
-Deleting Generated.xcconfig...                                       0ms
-Deleting flutter_export_environment.sh...                            0ms
-Deleting Flutter.podspec...                                          0ms
-Deleting .flutter-plugins-dependencies...                            0ms
-Deintegrating `Runner.xcodeproj`
-Deleted 1 'Check Pods Manifest.lock' build phases.
-Deleted 1 'Embed Pods Frameworks' build phases.
-- Pods_Runner.framework
-Deleted 1 'Check Pods Manifest.lock' build phases.
-- Pods_RunnerTests.framework
-- Pods-RunnerTests.debug.xcconfig
-- Pods-RunnerTests.release.xcconfig
-- Pods-RunnerTests.profile.xcconfig
-Deleting Pod file references from project
-- Pods-Runner.debug.xcconfig
-- Pods-Runner.release.xcconfig
-- Pods-Runner.profile.xcconfig
-Deleted 1 empty `Pods` groups from project.
-Deleted 1 empty `Frameworks` groups from project.
-Removing `Pods` directory.
-Project has been deintegrated. No traces of CocoaPods left in project.
-Note: The workspace referencing the Pods project still remains.
-[!] Invalid `Podfile` file: /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Flutter/Generated.xcconfig must exist. If you're running pod install manually, make sure flutter pub get is executed first.
- #  from /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Podfile:16
- #  -------------------------------------------
- #    unless File.exist?(generated_xcode_build_settings_path)
- >      raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
- #    end
- #  -------------------------------------------
-Resolving dependencies in `/Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios`...
-Downloading packages...
-  _flutterfire_internals 1.3.35 (1.3.61 available)
-  characters 1.4.0 (1.4.1 available)
-  cloud_firestore 4.17.5 (6.0.1 available)
-  cloud_firestore_platform_interface 6.2.5 (7.0.1 available)
-  cloud_firestore_web 3.12.5 (5.0.1 available)
-  firebase_analytics 10.10.7 (12.0.1 available)
-  firebase_analytics_platform_interface 3.10.8 (5.0.1 available)
-  firebase_analytics_web 0.5.7+7 (0.6.0+1 available)
-  firebase_auth 4.16.0 (6.0.2 available)
-  firebase_auth_platform_interface 7.3.0 (8.1.1 available)
-  firebase_auth_web 5.8.13 (6.0.2 available)
-  firebase_core 2.32.0 (4.1.0 available)
-  firebase_core_platform_interface 5.4.2 (6.0.0 available)
-  firebase_core_web 2.24.0 (3.1.0 available)
-  firebase_remote_config 4.4.7 (6.0.1 available)
-  firebase_remote_config_platform_interface 1.4.35 (2.0.2 available)
-  firebase_remote_config_web 1.6.7 (1.8.11 available)
-  firebase_storage 11.6.5 (13.0.1 available)
-  firebase_storage_platform_interface 5.1.22 (5.2.12 available)
-  firebase_storage_web 3.6.22 (3.10.19 available)
-  flutter_lints 5.0.0 (6.0.0 available)
-  go_router 12.1.3 (16.2.1 available)
-  js 0.6.7 (0.7.2 available)
-  lints 5.1.1 (6.0.0 available)
-  material_color_utilities 0.11.1 (0.13.0 available)
-  meta 1.16.0 (1.17.0 available)
-  test_api 0.7.6 (0.7.7 available)
-Got dependencies in `/Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios`!
-27 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-Changing current working directory to: /Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios
 Resolving dependencies...
 Downloading packages...
   _flutterfire_internals 1.3.35 (1.3.61 available)
@@ -288,26 +185,819 @@ Got dependencies!
 27 packages have newer versions incompatible with dependency constraints.
 Try `flutter pub outdated` for more information.
 Building com.tastesmoke.app for simulator (ios)...
-Running pod install...                                             29.4s
 Running Xcode build...                                          
-Xcode build done.                                           45.8s
+Xcode build done.                                           65.0s
 Failed to build iOS app
-Parse Issue (Xcode): Module 'cloud_firestore' not found
-/Users/runner/work/tastesmoke-flutter-ios/tastesmoke-flutter-ios/ios/Runner/GeneratedPluginRegistrant.m:11:8
+Error (Xcode): unsupported option '-G' for target 'x86_64-apple-ios13.0-simulator'
+
 Encountered error while building for simulator.
---- Критическая ошибка: все стратегии сборки не удались ---
-Firebase модули:
-./Pods/FirebaseRemoteConfigInterop
-./Pods/FirebaseRemoteConfigInterop/FirebaseRemoteConfig
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseCoreInternal.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/firebase_analytics.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/Firebase.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseCore.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseAuth.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/firebase_core.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/firebase_auth.xcscheme
-./Pods/Pods.xcodeproj/xcuserdata/runner.xcuserdatad/xcschemes/FirebaseStorage.xcscheme
-find: stdout: Broken pipe
-/Users/runner/work/_temp/9bad42d9-98e1-43a2-8d85-0769e59dc890.sh: line 38: cd: ios: No such file or directory
-Pod состояние:
+--- Критическая ошибка: debug сборки не удались ---
+Логи Flutter doctor:
+[✓] Flutter (Channel stable, 3.35.2, on macOS 15.5 24F74 darwin-arm64, locale en-US) [928ms]
+    • Flutter version 3.35.2 on channel stable at /Users/runner/hostedtoolcache/flutter/stable-3.35.2-arm64
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 05db968908 (7 days ago), 2025-08-25 10:21:35 -0700
+    • Engine revision a8bfdfc394
+    • Dart version 3.9.0
+    • DevTools version 2.48.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-lldb-debugging
+
+[!] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [2.7s]
+    • Android SDK at /Users/runner/Library/Android/sdk
+    • Emulator version 36.1.9.0 (build_id 13823996) (CL:N/A)
+    • Platform android-36-ext19, build-tools 36.0.0
+    • ANDROID_HOME = /Users/runner/Library/Android/sdk
+    • ANDROID_SDK_ROOT = /Users/runner/Library/Android/sdk
+    • Java binary at: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.8-9.0/arm64/Contents/Home/bin/java
+      This JDK is specified by the JAVA_HOME environment variable.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment Temurin-21.0.8+9 (build 21.0.8+9-LTS)
+    ! Some Android licenses not accepted. To resolve this, run: flutter doctor --android-licenses
+
+[✓] Xcode - develop for iOS and macOS (Xcode 16.4) [2.0s]
+    • Xcode at /Applications/Xcode_16.4.app/Contents/Developer
+    • Build 16F6
+    • CocoaPods version 1.16.2
+
+[✓] Chrome - develop for the web [8ms]
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[!] Android Studio (not installed) [6ms]
+    • Android Studio not found; download from https://developer.android.com/studio/index.html
+      (or visit https://flutter.dev/to/macos-android-setup for detailed instructions).
+
+[✓] Connected device (2 available) [7.9s]
+    • macOS (desktop) • macos  • darwin-arm64   • macOS 15.5 24F74 darwin-arm64
+    • Chrome (web)    • chrome • web-javascript • Google Chrome 139.0.7258.139
+
+[✓] Network resources [524ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.
+Логи Podfile:
+# Uncomment this line to define a global platform for your project
+platform :ios, '13.0'
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT=(.*)/) 
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  use_frameworks!
+  use_modular_headers!
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  
+  # Обеспечиваем правильное связывание Firebase модулей
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/RemoteConfig'
+  
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+    
+    # Настройки для совместимости
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      
+      # Основные настройки для избежания -G флага
+      config.build_settings['GCC_GENERATE_DEBUGGING_SYMBOLS'] = 'NO'
+      config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf-with-dsym'
+      
+      # Удаление проблемных флагов
+      config.build_settings.delete('OTHER_CFLAGS')
+      config.build_settings.delete('OTHER_SWIFT_FLAGS')
+      
+      # ARM64 настройки (упрощенные)
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+      config.build_settings['VALID_ARCHS[sdk=iphoneos*]'] = 'arm64'
+      
+      # Исправление предупреждений
+      if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
+  end
+endЛоги pod install:
+  Preparing
+
+Analyzing dependencies
+
+Inspecting targets to integrate
+  Using `ARCHS` setting to build architectures of target `Pods-Runner`: (``)
+  Using `ARCHS` setting to build architectures of target `Pods-RunnerTests`: (``)
+
+Finding Podfile changes
+  - Firebase
+  - Flutter
+  - cloud_firestore
+  - firebase_analytics
+  - firebase_auth
+  - firebase_core
+  - firebase_remote_config
+  - firebase_storage
+  - path_provider_foundation
+  - sqflite_darwin
+
+Fetching external sources
+-> Fetching podspec for `Flutter` from `Flutter`
+-> Fetching podspec for `cloud_firestore` from `.symlinks/plugins/cloud_firestore/ios`
+cloud_firestore: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+-> Fetching podspec for `firebase_analytics` from `.symlinks/plugins/firebase_analytics/ios`
+firebase_analytics: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+-> Fetching podspec for `firebase_auth` from `.symlinks/plugins/firebase_auth/ios`
+firebase_auth: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+-> Fetching podspec for `firebase_core` from `.symlinks/plugins/firebase_core/ios`
+firebase_core: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+-> Fetching podspec for `firebase_remote_config` from `.symlinks/plugins/firebase_remote_config/ios`
+firebase_remote_config: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+-> Fetching podspec for `firebase_storage` from `.symlinks/plugins/firebase_storage/ios`
+firebase_storage: Using Firebase SDK version '10.25.0' defined in 'firebase_core'
+-> Fetching podspec for `path_provider_foundation` from `.symlinks/plugins/path_provider_foundation/darwin`
+-> Fetching podspec for `sqflite_darwin` from `.symlinks/plugins/sqflite_darwin/darwin`
+
+Resolving dependencies of `Podfile`
+  CDN: trunk Relative path: CocoaPods-version.yml exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_0_3_5.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/12.2.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_4_2_c.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/3.16.0/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_3_c_c.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/c/c/FirebaseStorage/12.2.0/FirebaseStorage.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_e_2_1.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/2/1/FirebaseAnalytics/12.2.0/FirebaseAnalytics.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/2/1/FirebaseAnalytics/10.25.0/FirebaseAnalytics.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_8_b_d.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/b/d/FirebaseCore/12.2.0/FirebaseCore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_2_f_7.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/f/7/FirebaseInstallations/12.2.0/FirebaseInstallations.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_0_8_4.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/8.1.0/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_6_1_e.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/6/1/e/nanopb/3.30910.0/nanopb.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/2/1/FirebaseAnalytics/10.25.0/FirebaseAnalytics.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_e_3_b.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/3/b/GoogleAppMeasurement/12.2.0/GoogleAppMeasurement.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/3/b/GoogleAppMeasurement/10.25.0/GoogleAppMeasurement.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/3/b/GoogleAppMeasurement/10.25.0/GoogleAppMeasurement.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/3/b/GoogleAppMeasurement/10.25.0/GoogleAppMeasurement.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/3/5/Firebase/10.25.0/Firebase.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/c/c/FirebaseStorage/10.25.0/FirebaseStorage.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_e_9_8.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/9/8/FirebaseAppCheckInterop/12.2.0/FirebaseAppCheckInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_4_2_7.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/7/FirebaseAuthInterop/12.2.0/FirebaseAuthInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_4_7_f.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/7/f/FirebaseCoreExtension/12.2.0/FirebaseCoreExtension.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_c_e_3.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/5.0.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/e/3/GTMSessionFetcher/3.5.0/GTMSessionFetcher.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_0_b_5.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/b/5/PromisesObjC/2.4.0/PromisesObjC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_6_3_6.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/6/3/6/FirebaseAuth/12.2.0/FirebaseAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/f/7/FirebaseInstallations/10.29.0/FirebaseInstallations.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_f_2_a.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/f/2/a/FirebaseRemoteConfig/12.2.0/FirebaseRemoteConfig.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_0_9_f.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/9/f/FirebaseFirestore/12.2.0/FirebaseFirestore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/b/d/FirebaseCore/10.25.0/FirebaseCore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_7_9_1.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/7/9/1/FirebaseCoreInternal/12.2.0/FirebaseCoreInternal.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/8/b/d/FirebaseCore/10.25.0/FirebaseCore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/b/5/PromisesObjC/2.4.0/PromisesObjC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/6/3/6/FirebaseAuth/10.25.0/FirebaseAuth.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_c_1_1.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/1/1/RecaptchaInterop/101.0.0/RecaptchaInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/b/5/PromisesObjC/2.4.0/PromisesObjC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/7/9/1/FirebaseCoreInternal/10.29.0/FirebaseCoreInternal.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/7/FirebaseAuthInterop/10.29.0/FirebaseAuthInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/9/8/FirebaseAppCheckInterop/10.29.0/FirebaseAppCheckInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/8/4/GoogleUtilities/7.13.3/GoogleUtilities.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/e/9/8/FirebaseAppCheckInterop/10.29.0/FirebaseAppCheckInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/0/9/f/FirebaseFirestore/10.25.0/FirebaseFirestore.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_3_1_8.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/1/8/FirebaseFirestoreInternal/12.2.0/FirebaseFirestoreInternal.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_b_c_7.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/c/7/FirebaseSharedSwift/12.2.0/FirebaseSharedSwift.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/6/1/e/nanopb/2.30910.0/nanopb.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/6/1/e/nanopb/2.30910.0/nanopb.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/6/1/e/nanopb/2.30910.0/nanopb.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/1/1/RecaptchaInterop/100.0.0/RecaptchaInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/b/c/7/FirebaseSharedSwift/10.29.0/FirebaseSharedSwift.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/7/f/FirebaseCoreExtension/10.29.0/FirebaseCoreExtension.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/f/2/a/FirebaseRemoteConfig/10.25.0/FirebaseRemoteConfig.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_d_c_1.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/c/1/FirebaseABTesting/12.2.0/FirebaseABTesting.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_2_3_2.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/3/2/FirebaseRemoteConfigInterop/12.2.0/FirebaseRemoteConfigInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/2/3/2/FirebaseRemoteConfigInterop/10.29.0/FirebaseRemoteConfigInterop.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/1/8/FirebaseFirestoreInternal/10.25.0/FirebaseFirestoreInternal.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_3_8_6.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20250512.1/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_9_1_0.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/9/1/0/gRPC-Core/1.74.0/gRPC-Core.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_c_8_7.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/8/7/gRPC-C++/1.74.0/gRPC-C++.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_a_d_a.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/d/a/leveldb-library/1.22.6/leveldb-library.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/a/d/a/leveldb-library/1.22.6/leveldb-library.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/d/c/1/FirebaseABTesting/10.29.0/FirebaseABTesting.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/9/1/0/gRPC-Core/1.62.5/gRPC-Core.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/9/1/0/gRPC-Core/1.62.5/gRPC-Core.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/9/1/0/gRPC-Core/1.62.5/gRPC-Core.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/9/1/0/gRPC-Core/1.62.5/gRPC-Core.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: all_pods_versions_f_8_8.txt exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/f/8/8/BoringSSL-GRPC/0.0.41/BoringSSL-GRPC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/f/8/8/BoringSSL-GRPC/0.0.32/BoringSSL-GRPC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/f/8/8/BoringSSL-GRPC/0.0.32/BoringSSL-GRPC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/f/8/8/BoringSSL-GRPC/0.0.32/BoringSSL-GRPC.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/8/7/gRPC-C++/1.62.5/gRPC-C++.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/8/7/gRPC-C++/1.62.5/gRPC-C++.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/8/7/gRPC-C++/1.62.5/gRPC-C++.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/c/8/7/gRPC-C++/1.62.5/gRPC-C++.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/9/1/0/gRPC-Core/1.62.5/gRPC-Core.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/3/8/6/abseil/1.20240116.2/abseil.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/3.16.0/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/3.13.2/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/3.13.0/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/3.0.0/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/2.10.2/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/2.5/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/2.2.2/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/2.0.0/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/1.22.4/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/1.17.0/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/1.12.1303/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+  CDN: trunk Relative path: Specs/4/2/c/FlutterMacOS/1.9.102/FlutterMacOS.podspec.json exists! Returning local because checking is only performed in repo update
+
+Comparing resolved specification to the sandbox manifest
+  - BoringSSL-GRPC
+  - Firebase
+  - FirebaseABTesting
+  - FirebaseAnalytics
+  - FirebaseAppCheckInterop
+  - FirebaseAuth
+  - FirebaseAuthInterop
+  - FirebaseCore
+  - FirebaseCoreExtension
+  - FirebaseCoreInternal
+  - FirebaseFirestore
+  - FirebaseFirestoreInternal
+  - FirebaseInstallations
+  - FirebaseRemoteConfig
+  - FirebaseRemoteConfigInterop
+  - FirebaseSharedSwift
+  - FirebaseStorage
+  - Flutter
+  - GTMSessionFetcher
+  - GoogleAppMeasurement
+  - GoogleUtilities
+  - PromisesObjC
+  - RecaptchaInterop
+  - abseil
+  - cloud_firestore
+  - firebase_analytics
+  - firebase_auth
+  - firebase_core
+  - firebase_remote_config
+  - firebase_storage
+  - gRPC-C++
+  - gRPC-Core
+  - leveldb-library
+  - nanopb
+  - path_provider_foundation
+  - sqflite_darwin
+
+Downloading dependencies
+
+-> Using BoringSSL-GRPC (0.0.32)
+
+-> Using Firebase (10.25.0)
+
+-> Using FirebaseABTesting (10.29.0)
+
+-> Using FirebaseAnalytics (10.25.0)
+
+-> Using FirebaseAppCheckInterop (10.29.0)
+
+-> Using FirebaseAuth (10.25.0)
+
+-> Using FirebaseAuthInterop (10.29.0)
+
+-> Using FirebaseCore (10.25.0)
+
+-> Using FirebaseCoreExtension (10.29.0)
+
+-> Using FirebaseCoreInternal (10.29.0)
+
+-> Using FirebaseFirestore (10.25.0)
+
+-> Using FirebaseFirestoreInternal (10.25.0)
+
+-> Using FirebaseInstallations (10.29.0)
+
+-> Using FirebaseRemoteConfig (10.25.0)
+
+-> Using FirebaseRemoteConfigInterop (10.29.0)
+
+-> Using FirebaseSharedSwift (10.29.0)
+
+-> Using FirebaseStorage (10.25.0)
+
+-> Using Flutter (1.0.0)
+
+-> Using GTMSessionFetcher (3.5.0)
+
+-> Using GoogleAppMeasurement (10.25.0)
+
+-> Using GoogleUtilities (7.13.3)
+
+-> Using PromisesObjC (2.4.0)
+
+-> Using RecaptchaInterop (100.0.0)
+
+-> Using abseil (1.20240116.2)
+
+-> Using cloud_firestore (4.17.5)
+
+-> Using firebase_analytics (10.10.7)
+
+-> Using firebase_auth (4.16.0)
+
+-> Using firebase_core (2.32.0)
+
+-> Using firebase_remote_config (4.4.7)
+
+-> Using firebase_storage (11.6.5)
+
+-> Using gRPC-C++ (1.62.5)
+
+-> Using gRPC-Core (1.62.5)
+
+-> Using leveldb-library (1.22.6)
+
+-> Using nanopb (2.30910.0)
+
+-> Using path_provider_foundation (0.0.1)
+
+-> Using sqflite_darwin (0.0.4)
+  - Running pre install hooks
+  - Running pre integrate hooks
+
+Generating Pods project
+  - Creating Pods project
+  - Installing files into Pods project
+    - Adding source files
+    - Adding frameworks
+    - Adding libraries
+    - Adding resources
+    - Adding development pod helper files
+    - Linking headers
+  - Installing Pod Targets
+    - Installing target `BoringSSL-GRPC` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/BoringSSL-GRPC/ResourceBundle-openssl_grpc-BoringSSL-GRPC-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/BoringSSL-GRPC/BoringSSL-GRPC.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/BoringSSL-GRPC/BoringSSL-GRPC-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/BoringSSL-GRPC/BoringSSL-GRPC-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/BoringSSL-GRPC/BoringSSL-GRPC-dummy.m`
+    - Installing target `Firebase` iOS 11.0
+    - Installing target `FirebaseABTesting` iOS 11.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseABTesting/ResourceBundle-FirebaseABTesting_Privacy-FirebaseABTesting-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseABTesting/FirebaseABTesting.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseABTesting/FirebaseABTesting-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseABTesting/FirebaseABTesting-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseABTesting/FirebaseABTesting-dummy.m`
+    - Installing target `FirebaseAnalytics` iOS 10.0
+    - Installing target `FirebaseAppCheckInterop` iOS 10.0
+      - Generating module map file at `Pods/Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseAppCheckInterop/FirebaseAppCheckInterop-dummy.m`
+    - Installing target `FirebaseAuth` iOS 11.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseAuth/ResourceBundle-FirebaseAuth_Privacy-FirebaseAuth-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseAuth/FirebaseAuth.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseAuth/FirebaseAuth-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseAuth/FirebaseAuth-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseAuth/FirebaseAuth-dummy.m`
+    - Installing target `FirebaseAuthInterop` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/FirebaseAuthInterop/FirebaseAuthInterop.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseAuthInterop/FirebaseAuthInterop-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseAuthInterop/FirebaseAuthInterop-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseAuthInterop/FirebaseAuthInterop-dummy.m`
+    - Installing target `FirebaseCore` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseCore/ResourceBundle-FirebaseCore_Privacy-FirebaseCore-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseCore/FirebaseCore.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseCore/FirebaseCore-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseCore/FirebaseCore-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseCore/FirebaseCore-dummy.m`
+    - Installing target `FirebaseCoreExtension` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseCoreExtension/ResourceBundle-FirebaseCoreExtension_Privacy-FirebaseCoreExtension-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseCoreExtension/FirebaseCoreExtension.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseCoreExtension/FirebaseCoreExtension-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseCoreExtension/FirebaseCoreExtension-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseCoreExtension/FirebaseCoreExtension-dummy.m`
+    - Installing target `FirebaseCoreInternal` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseCoreInternal/ResourceBundle-FirebaseCoreInternal_Privacy-FirebaseCoreInternal-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseCoreInternal/FirebaseCoreInternal-dummy.m`
+    - Installing target `FirebaseFirestore` iOS 11.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseFirestore/ResourceBundle-FirebaseFirestore_Privacy-FirebaseFirestore-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-dummy.m`
+    - Installing target `FirebaseFirestoreInternal` iOS 11.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseFirestoreInternal/ResourceBundle-FirebaseFirestoreInternal_Privacy-FirebaseFirestoreInternal-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseFirestoreInternal/FirebaseFirestoreInternal.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseFirestoreInternal/FirebaseFirestoreInternal-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseFirestoreInternal/FirebaseFirestoreInternal-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseFirestoreInternal/FirebaseFirestoreInternal-dummy.m`
+    - Installing target `FirebaseInstallations` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseInstallations/ResourceBundle-FirebaseInstallations_Privacy-FirebaseInstallations-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseInstallations/FirebaseInstallations.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseInstallations/FirebaseInstallations-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseInstallations/FirebaseInstallations-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseInstallations/FirebaseInstallations-dummy.m`
+    - Installing target `FirebaseRemoteConfig` iOS 11.0
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseRemoteConfig/ResourceBundle-FirebaseRemoteConfig_Privacy-FirebaseRemoteConfig-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/FirebaseRemoteConfig/FirebaseRemoteConfig.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseRemoteConfig/FirebaseRemoteConfig-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseRemoteConfig/FirebaseRemoteConfig-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseRemoteConfig/FirebaseRemoteConfig-dummy.m`
+    - Installing target `FirebaseRemoteConfigInterop` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/FirebaseRemoteConfigInterop/FirebaseRemoteConfigInterop.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseRemoteConfigInterop/FirebaseRemoteConfigInterop-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseRemoteConfigInterop/FirebaseRemoteConfigInterop-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseRemoteConfigInterop/FirebaseRemoteConfigInterop-dummy.m`
+    - Installing target `FirebaseSharedSwift` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/FirebaseSharedSwift/FirebaseSharedSwift.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseSharedSwift/FirebaseSharedSwift-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseSharedSwift/FirebaseSharedSwift-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseSharedSwift/FirebaseSharedSwift-dummy.m`
+    - Installing target `FirebaseStorage` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/FirebaseStorage/FirebaseStorage.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/FirebaseStorage/FirebaseStorage-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/FirebaseStorage/FirebaseStorage-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/FirebaseStorage/FirebaseStorage-dummy.m`
+    - Installing target `Flutter` iOS 13.0
+    - Installing target `GTMSessionFetcher` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/GTMSessionFetcher/ResourceBundle-GTMSessionFetcher_Core_Privacy-GTMSessionFetcher-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-dummy.m`
+    - Installing target `GoogleAppMeasurement` iOS 10.0
+    - Installing target `GoogleUtilities` iOS 9.0
+      - Generating Info.plist file at `Pods/Target Support Files/GoogleUtilities/ResourceBundle-GoogleUtilities_Privacy-GoogleUtilities-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/GoogleUtilities/GoogleUtilities.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/GoogleUtilities/GoogleUtilities-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/GoogleUtilities/GoogleUtilities-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/GoogleUtilities/GoogleUtilities-dummy.m`
+    - Installing target `PromisesObjC` iOS 9.0
+      - Generating Info.plist file at `Pods/Target Support Files/PromisesObjC/ResourceBundle-FBLPromises_Privacy-PromisesObjC-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/PromisesObjC/PromisesObjC.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/PromisesObjC/PromisesObjC-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/PromisesObjC/PromisesObjC-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/PromisesObjC/PromisesObjC-dummy.m`
+    - Installing target `RecaptchaInterop` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/RecaptchaInterop/RecaptchaInterop.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/RecaptchaInterop/RecaptchaInterop-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/RecaptchaInterop/RecaptchaInterop-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/RecaptchaInterop/RecaptchaInterop-dummy.m`
+    - Installing target `abseil` iOS 9.0
+      - Generating Info.plist file at `Pods/Target Support Files/abseil/ResourceBundle-xcprivacy-abseil-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/abseil/abseil.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/abseil/abseil-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/abseil/abseil-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/abseil/abseil-dummy.m`
+    - Installing target `cloud_firestore` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/cloud_firestore/cloud_firestore.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/cloud_firestore/cloud_firestore-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/cloud_firestore/cloud_firestore-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/cloud_firestore/cloud_firestore-dummy.m`
+    - Installing target `firebase_analytics` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/firebase_analytics/firebase_analytics.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/firebase_analytics/firebase_analytics-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/firebase_analytics/firebase_analytics-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/firebase_analytics/firebase_analytics-dummy.m`
+    - Installing target `firebase_auth` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/firebase_auth/firebase_auth.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/firebase_auth/firebase_auth-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/firebase_auth/firebase_auth-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/firebase_auth/firebase_auth-dummy.m`
+    - Installing target `firebase_core` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/firebase_core/firebase_core.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/firebase_core/firebase_core-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/firebase_core/firebase_core-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/firebase_core/firebase_core-dummy.m`
+    - Installing target `firebase_remote_config` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/firebase_remote_config/firebase_remote_config.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/firebase_remote_config/firebase_remote_config-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/firebase_remote_config/firebase_remote_config-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/firebase_remote_config/firebase_remote_config-dummy.m`
+    - Installing target `firebase_storage` iOS 11.0
+      - Generating module map file at `Pods/Target Support Files/firebase_storage/firebase_storage.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/firebase_storage/firebase_storage-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/firebase_storage/firebase_storage-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/firebase_storage/firebase_storage-dummy.m`
+    - Installing target `gRPC-C++` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist`
+      - Generating Info.plist file at `Pods/Target Support Files/gRPC-C++/ResourceBundle-grpcpp-gRPC-C++-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/gRPC-C++/gRPC-C++.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/gRPC-C++/gRPC-C++-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/gRPC-C++/gRPC-C++-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/gRPC-C++/gRPC-C++-dummy.m`
+    - Installing target `gRPC-Core` iOS 10.0
+      - Generating Info.plist file at `Pods/Target Support Files/gRPC-Core/ResourceBundle-grpc-gRPC-Core-Info.plist`
+      - Copying module map file to `Pods/Target Support Files/gRPC-Core/gRPC-Core.modulemap`
+
+      - Generating Info.plist file at `Pods/Target Support Files/gRPC-Core/gRPC-Core-Info.plist`
+[!] CocoaPods did not set the base configuration of your project because your project already has a custom config set. In order for CocoaPods integration to work at all, please either set the base configurations of the target `Runner` to `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` or include the `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` in your build configuration (`Flutter/Release.xcconfig`).
+      - Generating dummy source at `Pods/Target Support Files/gRPC-Core/gRPC-Core-dummy.m`
+    - Installing target `leveldb-library` iOS 11.0
+      - Generating Info.plist file at `Pods/Target Support Files/leveldb-library/ResourceBundle-leveldb_Privacy-leveldb-library-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/leveldb-library/leveldb-library.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/leveldb-library/leveldb-library-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/leveldb-library/leveldb-library-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/leveldb-library/leveldb-library-dummy.m`
+    - Installing target `nanopb` iOS 9.0
+      - Generating Info.plist file at `Pods/Target Support Files/nanopb/ResourceBundle-nanopb_Privacy-nanopb-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/nanopb/nanopb.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/nanopb/nanopb-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/nanopb/nanopb-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/nanopb/nanopb-dummy.m`
+    - Installing target `path_provider_foundation` iOS 12.0
+      - Generating Info.plist file at `Pods/Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/path_provider_foundation/path_provider_foundation.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/path_provider_foundation/path_provider_foundation-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/path_provider_foundation/path_provider_foundation-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/path_provider_foundation/path_provider_foundation-dummy.m`
+    - Installing target `sqflite_darwin` iOS 12.0
+      - Generating Info.plist file at `Pods/Target Support Files/sqflite_darwin/ResourceBundle-sqflite_darwin_privacy-sqflite_darwin-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/sqflite_darwin/sqflite_darwin.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/sqflite_darwin/sqflite_darwin-umbrella.h`
+      - Generating Info.plist file at `Pods/Target Support Files/sqflite_darwin/sqflite_darwin-Info.plist`
+      - Generating dummy source at `Pods/Target Support Files/sqflite_darwin/sqflite_darwin-dummy.m`
+  - Installing Aggregate Targets
+    - Installing target `Pods-Runner` iOS 13.0
+      - Generating Info.plist file at `Pods/Target Support Files/Pods-Runner/Pods-Runner-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/Pods-Runner/Pods-Runner.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/Pods-Runner/Pods-Runner-umbrella.h`
+      - Generating dummy source at `Pods/Target Support Files/Pods-Runner/Pods-Runner-dummy.m`
+    - Installing target `Pods-RunnerTests` iOS 13.0
+      - Generating Info.plist file at `Pods/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist`
+      - Generating module map file at `Pods/Target Support Files/Pods-RunnerTests/Pods-RunnerTests.modulemap`
+      - Generating umbrella header at `Pods/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-umbrella.h`
+      - Generating dummy source at `Pods/Target Support Files/Pods-RunnerTests/Pods-RunnerTests-dummy.m`
+  - Integrating targets
+
+Integrating target `FirebaseAnalytics`
+    Adding Build Phase '[CP] Copy XCFrameworks' to project.
+
+Integrating target `GoogleAppMeasurement`
+    Adding Build Phase '[CP] Copy XCFrameworks' to project.
+  - Generating deterministic UUIDs
+  - Stabilizing target UUIDs
+  - Running post install hooks
+    - Podfile
+  - Writing Xcode project file to `Pods/Pods.xcodeproj`
+  Cleaning up sandbox directory
+
+Integrating client project
+
+Integrating target `Pods-Runner` (`Runner.xcodeproj` project)
+
+Integrating target `Pods-RunnerTests` (`Runner.xcodeproj` project)
+  - Running post integrate hooks
+  - Writing Lockfile in `Podfile.lock`
+  - Writing Manifest in `Pods/Manifest.lock`
+  CDN: trunk Relative path: CocoaPods-version.yml exists! Returning local because checking is only performed in repo update
+
+-> Pod installation complete! There are 15 dependencies from the Podfile and 36 total pods installed.
 Error: Process completed with exit code 1.
