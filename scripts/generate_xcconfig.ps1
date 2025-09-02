@@ -32,6 +32,20 @@ if (Test-Path "Flutter\Generated.xcconfig") {
     Write-Host "SUCCESS: Generated.xcconfig created!" -ForegroundColor Green
     Write-Host "Contents:"
     Get-Content "Flutter\Generated.xcconfig"
+    
+    # Проверяем, есть ли FLUTTER_ROOT в файле
+    $content = Get-Content "Flutter\Generated.xcconfig"
+    if ($content -match "FLUTTER_ROOT") {
+        Write-Host "FLUTTER_ROOT found in Generated.xcconfig"
+    } else {
+        Write-Host "FLUTTER_ROOT not found, adding it..." -ForegroundColor Yellow
+        # Получаем путь к Flutter
+        $flutterPath = Get-Command flutter | Select-Object -ExpandProperty Source
+        $flutterRoot = Split-Path (Split-Path $flutterPath -Parent) -Parent
+        Add-Content "Flutter\Generated.xcconfig" "FLUTTER_ROOT=$flutterRoot"
+        Write-Host "Added FLUTTER_ROOT: $flutterRoot"
+    }
+    
     Set-Location -Path ".."
     exit 0
 } else {
@@ -39,15 +53,24 @@ if (Test-Path "Flutter\Generated.xcconfig") {
     Write-Host "Trying alternative approach..."
     
     # Try creating a minimal Generated.xcconfig manually
+    $flutterPath = Get-Command flutter | Select-Object -ExpandProperty Source
+    $flutterRoot = Split-Path (Split-Path $flutterPath -Parent) -Parent
+    $currentPath = Get-Location
+    
     $content = @"
 // Auto-generated file
-FLUTTER_ROOT=
-FLUTTER_APPLICATION_PATH=
+FLUTTER_ROOT=$flutterRoot
+FLUTTER_APPLICATION_PATH=$currentPath
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
+FLUTTER_CLI_BUILD_MODE=debug
+EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386
+DART_OBFUSCATION=false
+TRACK_WIDGET_CREATION=true
+TREE_SHAKE_ICONS=false
 "@
     
     $content | Out-File -FilePath "Flutter\Generated.xcconfig" -Encoding UTF8

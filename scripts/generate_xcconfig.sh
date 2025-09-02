@@ -30,6 +30,19 @@ if [ -f "Flutter/Generated.xcconfig" ]; then
     echo "SUCCESS: Generated.xcconfig created!"
     echo "Contents:"
     cat Flutter/Generated.xcconfig
+    
+    # Проверяем, есть ли FLUTTER_ROOT в файле
+    if grep -q "FLUTTER_ROOT" Flutter/Generated.xcconfig; then
+        echo "FLUTTER_ROOT found in Generated.xcconfig"
+    else
+        echo "FLUTTER_ROOT not found, adding it..."
+        # Получаем путь к Flutter
+        FLUTTER_PATH=$(which flutter)
+        FLUTTER_ROOT=$(dirname "$(dirname "$FLUTTER_PATH")")
+        echo "FLUTTER_ROOT=$FLUTTER_ROOT" >> Flutter/Generated.xcconfig
+        echo "Added FLUTTER_ROOT: $FLUTTER_ROOT"
+    fi
+    
     cd ..
     exit 0
 else
@@ -37,14 +50,24 @@ else
     echo "Trying alternative approach..."
     
     # Try creating a minimal Generated.xcconfig manually
-    echo "// Auto-generated file" > Flutter/Generated.xcconfig
-    echo "FLUTTER_ROOT=" >> Flutter/Generated.xcconfig
-    echo "FLUTTER_APPLICATION_PATH=" >> Flutter/Generated.xcconfig
-    echo "COCOAPODS_PARALLEL_CODE_SIGN=true" >> Flutter/Generated.xcconfig
-    echo "FLUTTER_TARGET=lib/main.dart" >> Flutter/Generated.xcconfig
-    echo "FLUTTER_BUILD_DIR=build" >> Flutter/Generated.xcconfig
-    echo "FLUTTER_BUILD_NAME=1.0.0" >> Flutter/Generated.xcconfig
-    echo "FLUTTER_BUILD_NUMBER=1" >> Flutter/Generated.xcconfig
+    FLUTTER_PATH=$(which flutter)
+    FLUTTER_ROOT=$(dirname "$(dirname "$FLUTTER_PATH")")
+    
+    cat > Flutter/Generated.xcconfig << EOF
+// Auto-generated file
+FLUTTER_ROOT=$FLUTTER_ROOT
+FLUTTER_APPLICATION_PATH=$(pwd)
+COCOAPODS_PARALLEL_CODE_SIGN=true
+FLUTTER_TARGET=lib/main.dart
+FLUTTER_BUILD_DIR=build
+FLUTTER_BUILD_NAME=1.0.0
+FLUTTER_BUILD_NUMBER=1
+FLUTTER_CLI_BUILD_MODE=debug
+EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386
+DART_OBFUSCATION=false
+TRACK_WIDGET_CREATION=true
+TREE_SHAKE_ICONS=false
+EOF
     
     if [ -f "Flutter/Generated.xcconfig" ]; then
         echo "SUCCESS: Minimal Generated.xcconfig created manually!"

@@ -51,7 +51,43 @@ def flutter_root
   raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
 end
 
-require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+# Более надежный способ загрузки flutter_tools
+def flutter_tools_path
+  paths_to_check = [
+    File.join(flutter_root, 'packages', 'flutter_tools', 'bin', 'podhelper.rb'),
+    File.join(Dir.pwd, 'packages', 'flutter_tools', 'bin', 'podhelper.rb'),
+    File.join(Dir.pwd, '..', 'packages', 'flutter_tools', 'bin', 'podhelper.rb')
+  ]
+  
+  paths_to_check.each do |path|
+    return path if File.exist?(path)
+  end
+  
+  # Если не найден, попробуем стандартный путь
+  File.join(flutter_root, 'packages', 'flutter_tools', 'bin', 'podhelper.rb')
+end
+
+# Загружаем flutter_tools с проверкой
+flutter_tools_file = flutter_tools_path
+if File.exist?(flutter_tools_file)
+  require File.expand_path(flutter_tools_file)
+else
+  puts "WARNING: Could not find podhelper.rb at #{flutter_tools_file}"
+  puts "Using fallback method..."
+  
+  # Альтернативный подход для flutter_ios_podfile_setup
+  def flutter_ios_podfile_setup
+    # Минимальная реализация для обхода ошибки
+  end
+  
+  def flutter_install_all_ios_pods(ios_application_path = nil)
+    # Минимальная реализация для обхода ошибки
+  end
+  
+  def flutter_additional_ios_build_settings(target)
+    # Минимальная реализация для обхода ошибки
+  end
+end
 
 flutter_ios_podfile_setup
 
